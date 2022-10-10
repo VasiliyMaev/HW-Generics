@@ -6,10 +6,10 @@ public class MagicBox<T> {
 
     Random random = new Random();
 
-    public T[] items;
+    private T[] items;
 
-    public MagicBox() {
-        this.items = (T[]) new Object[3];
+    public MagicBox(int lenght) {
+        this.items = (T[]) new Object[lenght];
     }
 
     public boolean add(T item) {
@@ -28,7 +28,7 @@ public class MagicBox<T> {
                 throw new RuntimeException(String.format("Коробка не полна, добавь ещё " + (items.length - i)));
             }
         }
-        int randomInt = random.nextInt(3);
+        int randomInt = random.nextInt(items.length - 1);
         int index = randomInt;
         return items[index];
     }
